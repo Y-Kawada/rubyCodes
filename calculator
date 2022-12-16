@@ -1,0 +1,48 @@
+puts "数字を入力してください"
+
+num1_str = gets.chomp
+
+# 数字を判定
+while num1_str.match(/\A-?[0-9]+\z/).nil?
+    puts "error:数字を入力してください"
+    num1_str = gets.chomp
+end
+
+num1 = num1_str.to_i
+
+puts "演算子を入力してください"
+
+operater = gets.chomp
+
+# 演算子を判定
+while operater.match(/\A(\+|-|\*|\/|%)\z/).nil?
+    puts "error:+、-、*、/、%、で入力してください"
+    operater = gets.chomp
+end
+
+puts "数字を入力してください"
+
+num2_str = gets.chomp
+
+# 数字を判定
+while num2_str.match(/\A-?[0-9]+\z/).nil?
+    puts "error:数字を入力してください"
+    num2_str = gets.chomp
+end
+
+num2 = num2_str.to_i
+
+case operater
+    when "+" then
+        result = num1 + num2
+    when "-" then
+        result = num1 - num2
+    when "*" then
+        result = num1 * num2
+    when "/" then
+        result = num1 / num2
+    when "%" then
+        result = num1 % num2
+end
+
+puts "計算結果は「#{result}」です"
